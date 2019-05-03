@@ -8,7 +8,7 @@
   gather_facts: no
   tasks: 
   - name: Transfer the script
-    copy: src=ubuntu-lamp-stack-sudo.sh dest=/home/ubuntu/ mode=0777
+    copy: src=ubuntu-lamp-stack-sudo.sh dest=/home/ubuntu mode=0777
        
   - name: Execute the script
     command: sh /home/ubuntu/ubuntu-lamp-stack-sudo.sh
