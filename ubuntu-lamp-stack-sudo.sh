@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 ################################################################################
 # Ansible 
@@ -18,8 +18,6 @@ NOTE: Each WordPress plugin has its own set of requirements. Some may require ad
 
 sudo apt-get install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc -y >> $LOGFILE 2>&1
 
-checkerror $?
-
 #
 # Restarting Apache to take new additions into effect
 #
@@ -27,8 +25,6 @@ checkerror $?
 echo "Restarting Apache to get the new additions into effect..\n"
 
 sudo systemctl restart apache2
-
-checkerror $?
 
 #
 # Enabling mod_rewrite and .htaccess overwrites in Apache2
@@ -44,11 +40,8 @@ EOF
 
 
 sudo a2enmod rewrite >> $LOGFILE 2>&1
-checkerror $?
 
 sudo systemctl restart apache2 >> $LOGFILE 2>&1
-checkerror $?
-
 
 #
 # Downloading latest Wordpress tarall and extraction
@@ -64,11 +57,7 @@ echo "Dowloading latest wordpress to tmp directory \n"
 
 sudo curl -O  https://wordpress.org/latest.tar.gz >> $LOGFILE 2>&1
 
-checkerror $?
-
 sudo tar xzvf /tmp/latest.tar.gz >> $LOGFILE 2>&1
-
-checkerror $?
 
 sudo touch /tmp/wordpress/.htaccess
 
