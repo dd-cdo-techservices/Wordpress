@@ -8,7 +8,7 @@
   gather_facts: no
   tasks: 
   - name: execute sample script
-    script: appscript.sh
-    register: diskusage
+    script: ubuntu-lamp-stack-sudo.sh
+    register: appstack
 
-  - debug: var=diskusage
+  - debug: var=appstack
