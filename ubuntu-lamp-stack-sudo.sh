@@ -16,7 +16,7 @@ sudo mysqladmin -u root -pPassword@123 create blog
 echo "Installing additional PHP plugins as a default set which might be required by Wordpress... \n
 NOTE: Each WordPress plugin has its own set of requirements. Some may require additional PHP packages to be installed. Check your plugin documentation to discover its PHP requirements \n"
 
-sudo apt-get install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc -y >> $LOGFILE 2>&1
+sudo apt-get install php-curl php-gd php-mbstring php-mcrypt php-xml php-xmlrpc -y
 
 #
 # Restarting Apache to take new additions into effect
@@ -39,9 +39,9 @@ sudo cat >> /etc/apache2/apache2.conf <<EOF
 EOF
 
 
-sudo a2enmod rewrite >> $LOGFILE 2>&1
+sudo a2enmod rewrite
 
-sudo systemctl restart apache2 >> $LOGFILE 2>&1
+sudo systemctl restart apache2
 
 #
 # Downloading latest Wordpress tarall and extraction
@@ -55,9 +55,9 @@ cd /tmp
 
 echo "Dowloading latest wordpress to tmp directory \n"
 
-sudo curl -O  https://wordpress.org/latest.tar.gz >> $LOGFILE 2>&1
+sudo curl -O  https://wordpress.org/latest.tar.gz
 
-sudo tar xzvf /tmp/latest.tar.gz >> $LOGFILE 2>&1
+sudo tar xzvf /tmp/latest.tar.gz
 
 sudo touch /tmp/wordpress/.htaccess
 
@@ -69,7 +69,7 @@ sudo mkdir /tmp/wordpress/wp-content/upgrade
 
 sudo cp -a /tmp/wordpress/. /var/www/html
 
-cd - >> $LOGFILE 2>&1
+cd -
 
 sudo rm -f /var/www/html/index.html
 
