@@ -8,7 +8,7 @@
   gather_facts: no
   tasks: 
   - name: execute sample script
-    script: /home/ec2-user/cm/wordpress/appscript.sh
+    script: appscript.sh
     register: diskusage
 
   - debug: var=diskusage
