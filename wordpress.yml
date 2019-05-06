@@ -6,11 +6,9 @@
 - hosts: wordpress
   become: true
   gather_facts: no
-  tasks: 
+  tasks:
   - name: Transfer the script
-    copy: src=ubuntu-lamp-stack-sudo.sh dest=/home/ubuntu mode=0777
-       
+    copy: src=wordpressinc.sh dest=/home/ubuntu mode=0777
+
   - name: Execute the script
-    command: sh /home/ubuntu/ubuntu-lamp-stack-sudo.sh
-    
-    
+    command: sh /home/ubuntu/wordpressinc.sh
