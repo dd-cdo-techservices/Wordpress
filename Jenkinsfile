@@ -13,8 +13,7 @@ pipeline {
     stage('Deploy App') {
       steps {
 	echo 'Deploying Wordpress Application on AWS Node'
-	sh 'ansible all -i targethost.ini -m ping'
-        sh 'ansible-playbook -i targethost.ini wordpress.yml'
+        sh 'ansible-playbook -i targethost.ini java_app.yml'
         cleanWs()
       }
     }
